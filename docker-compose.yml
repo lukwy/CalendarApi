@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  calendardb:
+    container_name: calendar-db
+    image: mongo
+    restart: always
+    ports:
+        - 27017:27017
+
+  calendarapi:
+    container_name: calendar-api
+    image: ${DOCKER_REGISTRY-}calendarapi
+    build:
+      context: .
+      dockerfile: CalendarAPI/Dockerfile
+    ports:
+        - 5000:80
+    environment:
+        - DB_HOST=calendardb
+        - DB_NAME=user_calendar
+        - DB_PORT=27017
