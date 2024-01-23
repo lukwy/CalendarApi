@@ -16,13 +16,13 @@ namespace CalendarAPI.Controllers
         }
 
         [HttpGet("{userName}")]
-        public async Task<bool> GetGetUserDateTimesById(string userName)
+        public async Task<bool> CheckUserExists(string userName)
         {
             return await _userService.CheckUserExistsAsync(userName);
         }
 
         [HttpGet("{userName}/{password}")]
-        public async Task<int> GetUserDateTimeByIdAndDayAsync(string userName, string password)
+        public async Task<int> LogIn(string userName, string password)
         {
             return await _userService.LogInAsync(userName, password);
         }

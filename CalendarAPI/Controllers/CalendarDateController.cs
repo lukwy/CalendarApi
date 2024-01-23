@@ -16,13 +16,13 @@ namespace CalendarAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IEnumerable<UserDateTime>> GetGetUserDateTimesById(int id)
+        public async Task<IEnumerable<UserDateTime>> GetUserDateTimesById(int id)
         {
             return await _userDateTimeService.GetUserDateTimesByIdAsync(id);
         }
 
         [HttpGet("{id}/{day}")]
-        public async Task<IEnumerable<UserDateTime>> GetUserDateTimeByIdAndDayAsync(int id, DateTime day)
+        public async Task<IEnumerable<UserDateTime>> GetUserDateTimeByIdAndDay(int id, DateTime day)
         {
             return await _userDateTimeService.GetUserDateTimeByIdAndDayAsync(id, day);
         }
